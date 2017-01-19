@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fanli-4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        nav {
+            margin: 0 auto;
+            width: 600px;
+            height: 40px;
+            border-radius: 4px;
+            background-color: #F1F1F1;
+            box-shadow: 0 2px 4px 0px rgba(0,0,0,0.16);
+        }
+        li{
+            float: left;
+            position: relative;
+        }
+        a{
+            text-decoration: none;
+            color: #333333;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding:0 16px;
+        }
+        a:hover{
+            background: #C8C8C8;
+        }
+        .boy{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+        }
+        li:hover .boy{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+   <nav>
+       <ul>
+           <li>
+               <a href="#">首页</a>
+           </li>
+           <li>
+               <a href="#">作品</a>
+           </li>
+           <li >
+               <a href="#" >更多</a>
+                <li class="boy">
+                    <a href="#">Github</a>
+                    <a href="#">博客</a>
+                    <a href="#">知乎</a>
+                </li>
+           </li>
+       </ul>
+
+   </nav>
+</body>
+</html>
