@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  .example-first{
+        width: 450px;
+        background-color: #ffcc99;
+        padding: 75px 0;
+        text-align: center;
+        /* 上下padding值相等实现垂直居中 */
+}
+.example-second{
+        width: 650px;
+        height: 320px;
+        background-color: #ccff96;
+        position: relative;
+        
+}
+.content{
+        position: absolute;
+        left: 50%;
+        top: 50%;   
+        width: 200px;
+        height: 100px;
+        margin-left: -100px;
+        margin-top: -50px;
+        background-color :#99cccc;
+        /* 固定宽高，绝对定位居中 */
+}
+.center{
+       position: absolute;
+       left: 50%;
+       top: 50%;   
+       width: 100px;
+       height: 50px;
+       transform:translate(-50%,-50%);
+       background-color: #cc3333;
+       /* CSS3属性，兼容问题 */
+      
+}
+.example-third{
+       text-align: center;
+       width: 300px;
+       height: 300px;
+       border: 2px solid pink;
+}
+.example-third:before{
+       content:"";
+       display: inline-block;
+       vertical-align: middle;
+       height: 100%;
+  /* vertical-align居中适用行内元素 */
+}
+img{
+       width: 150px;
+       vertical-align: middle;
+}
+.example-fourth{      
+       width: 400px;
+       height: 200px;
+       border: 2px solid pink;
+       vertical-align: middle;
+       text-align: center;
+       display:table-cell;
+  /* table-cell居中 */
+}
+
+  </style>
+</head>
+<body>
+  <div class="example-first">
+    <p>利用padding居中</p>
+    <p>利用padding居中</p>
+  </div>
+  
+  <div class="example-second">
+    <div class="content">
+       <div class="center"></div>
+    </div>
+  </div>
+  
+  <div class="example-third">
+    <img src="http://img2.3lian.com/2014/f3/16/d/27.jpg">
+  </div>
+  
+   <div class="example-fourth">
+     <img src="http://img2.3lian.com/2014/f3/16/d/27.jpg">
+  </div>
+    
+  
+</body>
+</html>
