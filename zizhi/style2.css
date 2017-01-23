@@ -1,0 +1,134 @@
+.container {
+    width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+}
+
+*{
+    margin:0;
+}
+h5{
+    color:rgba(0,0,0,0.8);
+    padding-bottom:10px;
+    border-bottom:2px solid rgba(0,0,0,0.3);
+    font-size: 24px;
+}
+h4{
+    border-bottom:3px solid;
+    padding-bottom:3px;
+    margin-bottom:6px;
+    font-size: 24px;
+}
+h6{
+    font-weight:normal;
+    padding-bottom:10px;
+    font-size:18px;
+    color:rgba(0,0,0,0.6);
+}
+em{
+    color:rgba(0,0,0,0.42016);
+}
+b{
+    margin-right:20px;
+}
+
+header:after,footer:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+header {
+    height: 130px;
+    padding:10px;
+}
+header .left {
+    height:100%;
+    width:100px;
+    float:left;
+}
+header .left img {
+    width: 80px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+header .middle .wrapper, .right .wrapper{
+    vertical-align: middle;
+    display:inline-block;
+}
+header .left:before,header .middle:before,header .right :before {
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+header>.right{
+    height:100%;
+    width:200px;
+    float:right;
+}
+header>.middle{
+    margin-left:120px;
+    margin-right:220px;
+    height:100%;
+}
+.right p{
+    margin-bottom:2px;
+}
+
+
+main h5{
+    width:50%;
+}
+main{
+    margin-top:30px;
+    color:rgba(0,0,0,0.4);
+}
+main .content{
+    margin-top:20px;
+    margin-left:3px;
+    margin-right:12px;
+}
+main p{
+    font-size:12px;
+}
+main .experience{
+    padding-left:30px;
+    padding-bottom:30px;
+    margin-left:20px;
+    border-left:5px solid #BED5FB;
+    position:relative;
+}
+
+main .experience:last-child{
+    padding-bottom:0;
+}
+.experience span{
+    position:absolute;
+    width:0px;
+    height:0px;
+    border:6px solid #003399;
+    border-radius:50%;
+    left:-8px;
+}
+
+
+footer{
+    margin:30px 0;
+}
+footer .left{
+    width:30%;
+    float:left;
+    position:relative;
+}
+footer .right{
+    width:60%;
+    float:right;
+}
+
+footer .right .module{
+    width:50%;
+    float:left;
+    margin-top:10px;
+}
