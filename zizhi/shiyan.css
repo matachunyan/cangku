@@ -1,0 +1,478 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+ul,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/*旋转*/
+@-webkit-keyframes circle{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(-360deg); }
+}
+#nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    height: 70px;
+    line-height: 80px;
+    width: 100%;
+    z-index: 100;
+}
+#nav>.container{
+    margin:0 40px;
+}
+
+#nav>.container>.name{
+    position: relative;
+    width: 200px;
+}
+
+#nav>.container>.name>em{
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    margin-top: -30px;
+    width: 48px;
+    height: 48px;
+    font-style: normal;
+    background: url("img/em-bg-nav.png") no-repeat;
+    border-radius: 50%;
+    border: 2px solid #50b332;
+    cursor: pointer;
+}
+#nav>.container>.name>em:hover{
+    -webkit-animation:circle 1s infinite linear;/*匀速 循环*/
+}
+#nav>.container>.name{
+    float: left;
+}
+#nav>.container>.name>a{
+    margin-left: 70px;
+    color: #50b332;
+    font-size: 30px;
+}
+#nav>.container>ul{
+    float: right;
+}
+#nav>.container>ul:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#nav>.container>ul>li{
+    margin-right: 10px;
+    float: left;
+}
+#nav>.container>ul>li:after{
+    content: '\/';
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    color: #50b332;
+}
+#nav>.container>ul>li:last-child:after{
+    content: "";
+}
+#nav>.container>ul>li>a{
+    color: #50b332;
+    font-size: 20px;
+}
+#header{
+    width: 100%;
+    height: 100%;
+    background: url("img/bg.jpg") no-repeat;
+    background-size: cover;
+    min-height: 800px;
+}
+#header>.container{
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -150px;
+}
+#header>.container>.welcome{
+    line-height: 40px;
+    font-size: 40px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#header>.container>.title{
+    font-weight: bold;
+    font-size: 70px;
+    margin-bottom: 55px;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#header>.container>a{
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    background-color: #50b332;
+    font-size: 19px;
+    padding: 20px 40px;
+    border-radius: 3px;
+}
+#person{
+    background-color: rgba(0,0,0,0.1);
+}
+#person>.container{
+    padding-top: 50px;
+    margin: 0 auto;
+    width: 80%;
+}
+#person>.container>h2{
+    line-height: 40px;
+    font-size: 40px;
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 5px solid #50b332;
+}
+#person>.container>.flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+}
+#person>.container>.flex>.half{
+    width: 40%;
+    height: 500px;
+}
+#person>.container>.flex>.half>div{
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+}
+#person>.container>.flex>.half>div.img1{
+    border-radius: 50%;
+    background: url("img/person.jpg") no-repeat 0 0;
+}
+#person>.container>.flex>.half>div.img2{
+    background: url("img/person.jpg") no-repeat -100px -230px;
+    border-radius: 50%;
+}
+#person>.container>.flex>.half>div:hover{
+    box-shadow: 3px 3px 3px 3px #ccc;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+.flex>.half>h2{
+    margin: 30px auto;
+    padding-bottom: 10px;
+    border-bottom: 5px solid;
+    text-align: center;
+    width: 400px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.flex>.half>p{
+    width: 400px;
+    margin: 0 auto;
+    text-indent: 2em;
+    line-height: 1.5;
+}
+#photo{
+    margin-top: 50px;
+}
+#photo>.container{
+    width: 80%;
+    margin: 0 auto;
+}
+#photo>.container>h2{
+    line-height: 40px;
+    font-size: 40px;
+    padding-left: 20px;
+    border-left: 5px solid #50b332;
+}
+#photo>.container>.flex>ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+#photo>.container>.flex>ul>li{
+    display: inline-block;
+    width: 30%;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.4);
+}
+#photo>.container>.flex>ul>li>a{
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+#photo>.container>.flex>ul>li>a>span{
+    position: absolute;
+    width: 100%;
+    height: 98%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    transition: background .5s;
+}
+#photo>.container>.flex>ul>li>a>span>em{
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -25px;
+    width: 48px;
+    height: 48px;
+    font-style: normal;
+    transition: background .5s .5s;
+}
+#photo>.container>.flex>ul>li>a>img{
+    width: 100%;
+    height: 80%;
+}
+#photo>.container>.flex>ul>li>a:hover .cover{
+    background: rgba(0,0,0,0.5);
+}
+#photo>.container>.flex>ul>li>a:hover .cover>em{
+    -webkit-animation:circle 1.5s infinite linear;/*匀速 循环*/
+    background: url("img/em-bg.png") no-repeat;
+    border-radius: 50%;
+    border: 2px solid #e6e6e6;
+}
+#photo>.container>.flex>ul>li>p{
+    font-size: 20px;
+    margin: 10px 0;
+}
+#introduce{
+    margin-top: 50px;
+    background: rgba(0,0,0,0.1);
+}
+#introduce>.container{
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 40px;
+}
+#introduce>.container>h2{
+    line-height: 40px;
+    font-size: 40px;
+    padding-left: 20px;
+    border-left: 5px solid #50b332;
+}
+#introduce>.container>.info{
+
+}
+#introduce>.container>.info>ul{
+    padding-top: 30px;
+}
+#introduce>.container>.info>ul>li{
+    display: block;
+}
+#introduce>.container>.info>ul>li>.img1{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #50b332;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    background: #fff url("img/img1.png") no-repeat -75px 0;
+}
+#introduce>.container>.info>ul>li>.img2{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #50b332;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    background: #fff url("img/img2.png") no-repeat -50px 0;
+}
+#introduce>.container>.info>ul>li>.img3{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #50b332;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    background: #fff url("img/img3.png") no-repeat -105px 0;
+}
+#introduce>.container>.info>ul>li>.img4{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid #50b332;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    background: #fff url("img/img4.png") no-repeat -25px -20px;
+}
+#introduce>.container>.info>ul>li>.img5{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid ;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    background: #fff url("img/img5.png") no-repeat -45px 0;
+}
+#introduce>.container>.info>ul>li>.text-left{
+    width: 30%;
+    height: 300px;
+    padding-right: 10%;
+    margin-left: 10%;
+    border-right: 4px solid #50b332;
+}
+#introduce>.container>.info>ul>li>.text-right{
+    width: 30%;
+    height: 300px;
+    margin-left: 50%;
+    border-left: 4px solid #50b332;
+    padding-left: 15%;
+}
+#introduce>.container>.info>ul>li>.text-last{
+    width: 30%;
+    height: 200px;
+    padding-right: 10%;
+    margin-left: 10%;
+    padding-bottom: 50px;
+}
+#introduce>.container>.info>ul>li>div>h2{
+    padding-top: 50px;
+}
+#introduce>.container>.info>ul>li>div>p{
+    margin-top: 20px;
+    text-indent: 2em;
+    line-height: 1.5;
+}
+#contact{
+    width: 100%;
+    height: 100%;
+    background: url("img/bg2.jpg") no-repeat;
+    background-size: cover;
+    min-height: 800px;
+    position: relative;
+}
+#contact>.container{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -200px 0 0 -40%;
+}
+#contact>.container>h2{
+    line-height: 40px;
+    font-size: 40px;
+    text-align: center;
+    color: #50b332;
+}
+#contact>.container>p{
+    color: #50b332;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+}
+#contact>.container>form{
+    position: relative;
+    padding-bottom: 50px;
+}
+
+#contact>.container>form:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+#contact>.container>form>ul>li{
+    width: 50%;
+    /*height: 200px;*/
+    float: left;
+    display: inline-block;
+}
+#contact>.container>form>ul>li>input[type="text"]{
+    display: inline;
+    width: 70%;
+    height: 60px;
+    margin-left: 20%;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+#contact>.container>form>ul>li>textarea{
+    resize: none;
+    width: 80%;
+    height: 220px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+#contact>.container>form>input[type="submit"]{
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #fff;
+    background-color: rgba( 0,0,255,0.1);
+    font-size: 19px;
+    padding: 10px 40px;
+    border: 1px solid rgba( 0,0,0,0.1);
+    border-radius: 3px ;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    cursor: pointer;
+}
+#contact>.container>form>input[type="submit"]:hover{
+    background-color: rgba( 0,0,255,0.4);
+    transition: .5s;
+}
+footer>.container>ul{
+    padding: 10px;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+footer>.container>ul>li{
+    width: 20%;
+    height: 50px;
+}
+footer>.container>ul>li>p{
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 15px;
+}
+footer>.container>ul>li{
+    position: relative;
+    min-width: 200px;
+}
+footer>.container>ul>li>em{
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-top: -26px;
+    margin-left: -25px;
+    width: 48px;
+    height: 48px;
+    font-style: normal;
+    background: url("img/em-bg-black.png") no-repeat;
+    border-radius: 50%;
+    border: 2px solid #2c2c2c;
+    cursor: pointer;
+}
+footer>.container>ul>li>em:hover{
+    -webkit-animation:circle 1s infinite linear;/*匀速 循环*/
+}
+footer>.container>ul>li>a{
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
