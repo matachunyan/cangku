@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+
+		.top{
+			margin: 0 auto;
+			width: 400px;
+		}
+		#btn1 #btn2{
+			text-align: center;
+		}
+		body {
+    		text-align: center;
+    		}
+		#div1{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			border: 10px solid gainsboro;
+		}
+		#img1{
+			width: 400px;
+			height: 400px;
+		}
+		#s1{
+			display: block;
+			background: black;
+			opacity: 0.8;
+			position: absolute;
+			top:0px;
+			width: 400px;
+			height: 30px;
+			font-size: 20px;
+			color: white;
+			line-height: 30px;
+			font-weight: bold;
+		}
+		#a1{
+			background: white;
+			font-size: 20px;
+			position: absolute;
+			left: 0;
+			height: 50px;
+			width: 50px;
+			text-align: center;
+			opacity: 0.5;
+			line-height: 50px;
+			top:175px;
+		}
+		#a2{
+			background: white;
+			font-size: 20px;
+			position: absolute;
+			right: 0;
+			height: 50px;
+			width: 50px;
+			text-align: center;
+			opacity: 0.5;
+			line-height: 50px;
+			top:175px;
+		}
+		#s2{
+			display: block;
+			background: black;
+			opacity: 0.8;
+			position: absolute;
+			bottom:0;
+			width: 400px;
+			height: 30px;
+			font-size: 20px;
+			color: white;
+			line-height: 30px;
+			font-weight: bold;
+		}
+		a{text-decoration: none;}
+	</style>	
+	<script>
+		window.onload = function(){
+			var arr = ["img/流氓.jpg","img/小时候.jpg","img/红发.jpg","img/集合.jpg"];
+			var arr1 =["白日依山尽","黄河入海流","欲穷千里目","更上一层楼"];
+			var arr2 =["1/4" ,"2/4" ,"3/4" ,"4/4" ];
+			var num =0;
+			var oA1 = document.getElementById("a1");
+			var oA2 = document.getElementById("a2");
+			var OS1= document.getElementById("s1");
+			var OS2= document.getElementById("s2");
+			var OImg1= document.getElementById("img1");
+			var oBtn1= document.getElementById("btn1");
+			var oBtn2= document.getElementById("btn2");
+			var oP= document.getElementById("p1");
+			var Onff = true;
+			
+			oBtn1.onclick = function(){
+				oP.innerHTML = "图片可从最后一张跳转到第一张循环切换";
+				Onff = true;
+				
+			}
+			
+			oBtn2.onclick = function(){
+				oP.innerHTML = "图片只能到最后一张或只能到第一张切换";
+				
+				 Onff = false;
+			}
+			
+			oA2.onclick = function (){
+				num++;
+					if(num ==  arr.length){
+						if(Onff == false){
+							alert("这是最后一张图片了");
+							num--;
+						}else{
+							num = 0;
+						}
+				
+					}
+					OImg1.src = arr[num];
+					OS1.innerHTML = arr2[num];
+					OS2.innerHTML = arr1[num];	
+				}
+			oA1.onclick = function (){
+				
+					if(num ==  0){
+						if(Onff == false)
+						{
+							alert("这是第一张图片了");
+							num=0;
+						}else
+						num = arr.length-1;
+						}else{
+							num--;
+						}
+				OImg1.src = arr[num];
+				OS1.innerHTML = arr2[num];
+				OS2.innerHTML = arr1[num];
+				}
+		}
+	</script>
+	</head>
+	<body>
+		<div class="top">
+			<input type="button" value="循环切换" id="btn1"/>
+			<input type="button" value="顺序切换" id="btn2"/>
+			<p style="text-align: center;" id="p1">图片可从最后一张跳转到第一张循环切换</p>
+			<div id="div1">
+				<span id="s1">1/4</span>
+				<a id="a1" href="#"><</a>
+				<a id="a2" href="#">></a>	
+				<img src="img/流氓.jpg" id="img1"/>
+				<span id="s2">白日依山尽</span>
+			</div>
+		</div>
+	</body>
+</html>
