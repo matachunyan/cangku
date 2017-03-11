@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进阶10</title>
+    <style>
+        .tab{
+            width: 182px;
+            border: 1px solid #ccc;
+            margin: 10px auto;
+            border-radius: 4px;
+        }
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .tab-header{
+            border-bottom: 1px solid #ccc;
+        }
+        .tab-container{
+            padding: 20px 10px;
+            height: 50px;
+        }
+        .tab-container>li{
+            display: none;
+        }
+        .tab-header>li{
+            float: left;
+            cursor: pointer;
+            color: blue;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+
+        }
+        .clearfix:after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+        .tab-header .active{
+            background-color: aquamarine;
+            color: #333;
+            margin-bottom: -1px;
+        }
+        .tab-container .active{
+            display: block;
+        }
+        .tab-header li:last-child{
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul class="tab-header clearfix">
+            <li class="active"> 选项1</li>
+            <li>选项2</li>
+            <li >选项3</li>
+        </ul>
+        <ul class="tab-container">
+            <li class="active">内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+    <script>
+        var tabHeader = document.querySelector(".tab-header");
+        var tabArrayLi = document.querySelectorAll(".tab-header>li");
+        var tabPanels =document.querySelectorAll(".tab-container>li");
+        tabHeader.addEventListener("click",function(e){
+            var clickNode = e.target;
+            if(clickNode.tagName.toLowerCase() === "li"){
+                for (var i=0;i<tabHeader.children.length;i++){
+                    tabHeader.children[i].classList.remove("active");//把tab-header中li的active 的CLASS 去除
+                }
+                clickNode.classList.add("active");//给当前选中的li添加class
+                var index= [].indexOf.call(tabArrayLi,clickNode);//获取当前li的排名
+                for (var i=0;i<tabPanels.length;i++){
+                    tabPanels[i].classList.remove("active");//删除tab-container中的class
+                }
+                tabPanels[index].classList.add("active");//对应的li排名的li添加class
+            }
+        })
+
+
+
+
+    </script>
+</body>
+</html>
