@@ -5,9 +5,9 @@
     <title>进阶10</title>
     <style>
         .tab{
-            width: 182px;
+            width: 420px;
             border: 1px solid #ccc;
-            margin: 10px auto;
+            margin: 50px auto;
             border-radius: 4px;
         }
         ul,li{
@@ -31,7 +31,7 @@
             float: left;
             cursor: pointer;
             color: blue;
-            padding: 10px;
+            padding: 2px 53.5px 0px 53.5px;
             border-right: 1px solid #ccc;
 
         }
@@ -56,9 +56,9 @@
 <body>
     <div class="tab">
         <ul class="tab-header clearfix">
-            <li class="active"> 选项1</li>
-            <li>选项2</li>
-            <li >选项3</li>
+            <li class="active"> tab1</li>
+            <li>tab2</li>
+            <li >tab3</li>
         </ul>
         <ul class="tab-container">
             <li class="active">内容1</li>
@@ -70,6 +70,7 @@
         var tabHeader = document.querySelector(".tab-header");
         var tabArrayLi = document.querySelectorAll(".tab-header>li");
         var tabPanels =document.querySelectorAll(".tab-container>li");
+
         tabHeader.addEventListener("click",function(e){
             var clickNode = e.target;
             if(clickNode.tagName.toLowerCase() === "li"){
@@ -84,8 +85,6 @@
                 tabPanels[index].classList.add("active");//对应的li排名的li添加class
             }
         })
-
-
 
 
     </script>
