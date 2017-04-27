@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠宝专柜</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script><!--引用jQuery-->
+    <style>
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        .mainlist{
+            width: 220px;
+            background-color: #c7171e;
+        }
+        .mainlist>li{
+            text-align: center;
+            position: relative;
+        }
+        .mainlist>li>a{
+            display: block;
+            color: azure;
+            font-size: 14px;
+            margin: 0 10px;
+            padding: 10px;
+            border-bottom: 1px dotted #de272e;
+        }
+        .mainlist .icon{
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .hidelist{
+            position: absolute;
+            top: 0;
+            left: 220px;
+            width: 210px;
+            background-color: antiquewhite;
+            border: 1px solid #ffffff;
+            font-size: 12px;
+            display: none;
+        }
+        .hl{
+            display: block;
+            width: 55px;
+            float: left;
+            padding: 10px 20px;
+        }
+        .active{
+            display: block;!important;
+        }
+    </style>
+</head>
+<body>
+<ul class="mainlist">
+    <li class="navlist">
+        <a href="#">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="hidelist clearfix">
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+        </ul>
+    </li>
+    <li class="navlist">
+        <a href="#">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="hidelist clearfix">
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+        </ul>
+    </li>
+    <li class="navlist">
+        <a href="#">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="hidelist clearfix">
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+        </ul>
+    </li>
+    <li class="navlist">
+        <a href="#">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="hidelist clearfix">
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+            <li class="hl"><a href="#">翡翠</a> </li>
+        </ul>
+    </li>
+</ul>
+</body>
+<script>
+    $(".mainlist").on('mouseover', '.navlist', function () {
+        $('.hidelist').removeClass('active');
+        $(this).children('.hidelist').addClass('active');
+    });
+    $(".mainlist").on('mouseout', '.navlist', function () {
+        $('.hidelist').removeClass('active');
+    });
+
+</script>
+</html>
