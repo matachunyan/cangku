@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        ul,li,body{
+            margin:0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+        li {
+            float: left;
+            margin:10px 10px;
+        }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        img {
+            width: 220px;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="container clearfix">
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" alt="" class="isloaded"></a></li>
+
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/17.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/17.jpg" alt="" class="isloaded"></a></li>
+    <li><a href=""><img src="http://cdn.jirengu.com/book.jirengu.com/img/18.jpg" data-src="http://cdn.jirengu.com/book.jirengu.com/img/18.jpg" alt="" class="isloaded"></a></li>
+
+</ul>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    //优化一、每次都要查找一遍所有的图片，可以对已经加载的图片做个标识，然后在筛选
+    select();
+    //这个函数是检查哪些图片是能够看到的，并将它显示出来
+    function select(){
+        $('.container img').not('.isloaded').each(function(){
+            if (isVisible($(this))) {
+                showImg($(this));
+            }
+        })
+    }
+
+    $(window).on('scroll',function(){
+        //滚动之后就要检查一下元素是否能够被看见，如果能够看见就展示图片
+        select();
+    })
+    //当某个元素能够被看见的时候加载，这个函数解决了元素什么时候加载
+    function isVisible($node) {
+        var winHe = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        var offsetTop = $node.offset().top;
+        var height = $node.innerHeight();
+        if ( (winHe + scrollTop ) > offsetTop && (scrollTop < offsetTop + height) ) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+    //接下来加载图片的函数，img图片的src属性如果是空就不会加载图片，如果设置后就会加载，所以应该先把所有的img图片的src属性清除掉
+    function showImg($imgs){
+        //对哪些img标签添加呢？首先不考虑性能只实现功能
+        $imgs.each(function(){
+            var url = $(this).attr('data-src')
+            $(this).attr('src',url);
+            $(this).addClass('isloaded');
+        })
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
