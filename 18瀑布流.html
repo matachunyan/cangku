@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>瀑布流</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        .clearfix:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+
+        /*初始化 end*/
+
+        .content {
+            position: relative;
+        }
+
+        .item {
+            position: absolute;
+            width: 200px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 1s;
+        }
+
+        .h1 {
+            height: 200px;
+            background-color: #f4b300;
+        }
+
+        .h2 {
+            height: 300px;
+            background-color: #691bb8;
+        }
+
+        .h3 {
+            height: 400px;
+            background-color: #006ac1;
+        }
+
+        .img-preview {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .img-row {
+            margin-bottom: 8px;
+        }
+
+        .img-row:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .img-box {
+            float: left;
+        }
+
+        .img-line .img-box:first-child {
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="item h1">1</div>
+    <div class="item h3">2</div>
+    <div class="item h2">3</div>
+    <div class="item h1">4</div>
+    <div class="item h1">5</div>
+    <div class="item h3">6</div>
+    <div class="item h3">7</div>
+    <div class="item h2">8</div>
+    <div class="item h1">9</div>
+    <div class="item h3">10</div>
+    <div class="item h3">11</div>
+    <div class="item h3">12</div>
+    <div class="item h2">13</div>
+    <div class="item h2">14</div>
+    <div id="load-more"></div>
+</div>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+    /*waterfull();
+    $(window).resize(function () {
+        waterfull();
+    })
+    */
+
+    var WaterFall =(function () {//封装
+        function init(){
+            waterfull()
+            $(window).resize(function () {
+                waterfull()
+
+            })
+        }
+        function  waterfull() {
+
+
+            var colLength = parseInt($(".content").width() / $(".item").width())//得到列数
+
+            var itemArr = [];
+            for (var i = 0; i < colLength; i++) {
+                itemArr[i] = 0
+            }
+            $(".item").each(function () {
+
+                var minValue = Math.min.apply(null, itemArr)//得到最小值
+                var minIndex = itemArr.indexOf(minValue)//最小值的下标
+
+                $(this).css({
+                    top: itemArr[minIndex],
+                    left: $(this).outerWidth(true) * minIndex
+
+                })
+                itemArr[minIndex] += $(this).outerHeight(true)//放置块的高度加至此列高度上
+            })
+        }
+        return{
+            init:init
+        }
+
+    })()
+    WaterFall.init();
+</script>
+</body>
+</html>
