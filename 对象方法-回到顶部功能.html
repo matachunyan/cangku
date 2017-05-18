@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象方法</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script><!--引用jQuery-->
+
+</head>
+<body>
+    <p style="height: 3000px ">一段话,请继续往下拉</p>
+
+</body>
+<script>
+    function GoTop($ct){
+        this.ct=$ct || $('body');
+        this.target=$('<button class="gotopBtn">回到顶部</button>');
+        this.target.css({
+            position:'fixed',
+            right: '20px',
+            bottom:'30px',
+            width:"80px",
+            height:"75px",
+            
+
+        })
+    }
+    GoTop.prototype.bindEvent=function(){
+        this.target.on('click',function(){
+            $(window).scrollTop(0);
+        });
+        var $top=this.target;
+        $(window).on('scroll',function(){
+            if($(this).scrollTop()>100){
+                $top.show();
+            }else{
+                $top.hide();
+            }
+        });
+    };
+    GoTop.prototype.createNode=function(){
+        this.ct.append(this.target);
+        this.target.hide();
+    };
+    var $top=new GoTop();
+    $top.createNode();
+    $top.bindEvent();
+</script>
+</html>
